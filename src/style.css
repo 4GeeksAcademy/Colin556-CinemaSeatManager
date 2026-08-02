@@ -1,1 +1,50 @@
 @import "tailwindcss";
+
+:root {
+	--seat-free-bg: #e2e8f0;
+	--seat-free-fg: #0f172a;
+	--seat-occupied-bg: #dc2626;
+	--seat-occupied-fg: #ffffff;
+}
+
+body {
+	background-image: radial-gradient(circle at 20% 10%, #dbeafe 0%, transparent 40%),
+		radial-gradient(circle at 80% 90%, #e2e8f0 0%, transparent 35%);
+}
+
+.grid-area {
+	display: grid;
+	grid-template-columns: repeat(10, minmax(0, 1fr));
+	gap: 0.5rem;
+}
+
+.seat-btn {
+	border-radius: 0.6rem;
+	border: 1px solid #94a3b8;
+	padding: 0.45rem 0.2rem;
+	font-size: 0.75rem;
+	font-weight: 700;
+	transition: transform 120ms ease, box-shadow 120ms ease, background-color 120ms ease;
+}
+
+.seat-btn:focus-visible {
+	outline: 2px solid #0f172a;
+	outline-offset: 2px;
+}
+
+.seat-btn-free {
+	background: var(--seat-free-bg);
+	color: var(--seat-free-fg);
+}
+
+.seat-btn-free:hover {
+	transform: translateY(-1px);
+	box-shadow: 0 4px 12px rgb(15 23 42 / 0.2);
+}
+
+.seat-btn-occupied {
+	background: var(--seat-occupied-bg);
+	color: var(--seat-occupied-fg);
+	cursor: not-allowed;
+	opacity: 0.9;
+}
